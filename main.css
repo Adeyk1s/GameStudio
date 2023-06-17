@@ -1,0 +1,821 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&family=Noto+Sans:wght@300;400;500;700&display=swap');
+*{
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background: #101D2C;
+}
+body.overflov{
+    overflow: hidden;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns:  minmax(240px, 1360px) 80px;
+    grid-template-rows: auto;
+    min-height: 100vh;
+    gap: 0;
+    grid-template-areas:
+    "header nav"
+    "main nav"
+    "footer nav";
+    justify-content: center;
+}
+.header{
+    border: 4px solid #fff;
+    grid-area: header;  
+    display: grid;
+    grid-template-areas:
+    "info players";
+}
+.header__info{
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(100px,970px);
+    grid-template-rows: minmax(400px,700px);
+    background: url(img/Header_background.svg);
+}
+.header__info-logo{
+    position: absolute;
+    top:8%;
+    left:50%;
+    transform: translate(-50%,-8%);
+}
+.header__info-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 60px;
+}
+.header__info-block h1{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 23px;
+    letter-spacing: 0.13em;
+    color: #61A568;
+}
+.header__info-block p{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 55px;
+    color: #F5F5F5;
+    margin-bottom: 30px;
+}
+.btn{
+    padding: 15px 30px;
+    width: 238px;
+    height: 50px;
+    background: #61A568;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #F5F5F5;
+    border: none;
+}
+.header__photo{
+    width: 100%;
+    top:95%;
+    left:50%;
+    transform: translate(-50%,-90%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+.header__photo p{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #AAAAAA;
+    position: relative;
+    bottom:10px;
+    margin: 0px 15px;
+}
+.section-one, .section-two{
+    border-top: solid 1px #fff;
+}
+.section-one img:first-child{
+    margin-top: 13px;
+    margin-left: 60px;
+    margin-right: 105px;
+}
+.section-two img:first-child{
+    margin-top: 13px; 
+    margin-right: 105px;
+}
+.section-two img:last-child{
+    margin-right:60px;
+}
+.header__players{
+    background:#101D2C;
+    display:grid;
+    grid-template-columns: minmax(100px,390px);
+    grid-template-rows: minmax(400px,700px);
+    justify-items: center;
+    align-items: center;
+}
+.players{
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+}
+.top{
+    text-align: center;
+    width: 100%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 23px;
+    color: #61A568;
+    margin-bottom: 38px;
+}
+.first,.second,.three{
+    display: flex;
+    align-items: center;
+}
+.first img,.second img,.three img{
+    margin-right: 20px;
+}
+.name{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 23px;
+    color: #F5F5F5;
+}
+.score{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    color: #AAAAAA;
+}
+.first{
+    margin-bottom: 40px;
+}
+.second{
+    margin-bottom: 40px;
+}
+
+.navigation-menu{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background:#101D2C;
+    z-index: 2;
+}
+.navigation-menu.active{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-nav {
+    position: fixed;
+    width: 80px;
+    height: 60px;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 3;
+    align-items: center;
+}
+.btn-nav div{
+    height:3px;
+    border-radius:10px 10px;
+    width: 60%;
+    background:#fff;
+}
+.btn-nav.active div:nth-of-type(1) {
+    position: relative;
+    top:5px;
+    transform: rotate(45deg);
+}
+.btn-nav.active div:nth-of-type(2) {
+    display: none;  
+}
+.btn-nav.active div:nth-of-type(3) {
+    position: relative;
+    bottom: 5px;
+    transform: rotate(-45deg);
+}
+.btn-nav div:not(:last-child){
+    margin-bottom:8px;
+}
+.desktop{
+    width:50%;
+    list-style: none;
+    text-align: center;
+}
+.desktop li{
+    margin-bottom:30px;
+}
+.desktop li a {
+    font-size: 40px;
+    font-weight:400;
+    text-decoration: none;
+    color: #fff;
+}
+.phone{
+    display: none;
+    width: 50%;
+    height:70%;
+}
+.main{
+    grid-area: main;
+}
+.achievements{
+    display: grid;
+    grid-template-columns: minmax(100px,1360px);
+    grid-template-rows: minmax(400px,695px);
+    background:#fff;
+    align-items: center;
+}
+.achievements-wrapper{
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(3,minmax(100px,360px));
+    grid-template-rows: repeat(2,minmax(80px, 180px));
+    gap: 30px;
+    grid-template-areas:
+    "platform turnir onlyne "
+    "world chat pay";
+
+}
+.platform{
+    grid-area: platform;
+}
+.turnir{
+    grid-area: turnir;
+}
+.onlyne{
+    grid-area: onlyne;
+}
+.world{
+    grid-area: world;
+}
+.chat{
+    grid-area: chat;
+}
+.pay{
+    grid-area: pay;
+}
+.footer{
+    grid-area: footer;
+}
+.achievements-Up{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 23px;
+    color: #425844;
+    margin-bottom: 15px;
+}
+.block-info-wrapper{
+    display: flex; 
+    align-items:flex-start;
+}
+.block-info-wrapper img{
+    margin-right: 15px;
+}
+.teams{
+    border: 4px solid #fff;
+    display:grid;
+    grid-template-columns: minmax(100px,712px) minmax(100px,648px);
+    grid-template-rows: minmax(400px,584px);
+}
+.teams-first{
+    position: relative;
+    background: url(img/teams_background.svg) no-repeat;
+    background-size: cover;
+}
+.teams img{
+    position: absolute;
+    width: 70%;
+}
+.teams-photo-first{
+    top: 10%;
+    left: 15%;
+}
+.teams-photo-second{
+    top: 35%;
+    left: 36%;
+}
+.teams-second{
+    background: #101D2C;
+    display: grid;
+    align-items: center;
+}
+.teams-second-wrapper{
+    margin-left: 12%;
+    width: 75%;
+}
+.teams-second-wrapper h2{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: 0.13em;
+    color: #61A568;
+}
+.teams-second-p{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+    color: #F5F5F5;
+    margin-bottom: 30px;
+}
+.teams-second-p2{
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 113%;
+    color: #F5F5F5;
+    margin-bottom: 40px;
+}
+
+
+.assortment{
+    display: grid;
+    grid-template-columns:minmax(200px,1360px) ;
+    grid-template-rows: minmax(200px,1240px);
+    align-items: center;
+    background:#fff;
+}
+.assortment-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(100px,330px));
+    grid-template-rows: repeat(2,minmax(100px,450px));
+    justify-content: center;
+    align-items: center;
+    gap:40px 60px;
+}
+.item{
+    position: relative;
+}
+.item-img {
+    display: grid;
+    grid-template-columns: minmax(30px,330px);
+    grid-template-rows: 225px;
+}
+.PC{
+    background: url(img/pc-img.svg);
+}
+.PS{
+    background: url(img/Playstation.svg);
+}
+.X-BOX{
+    background: url(img/x-box.svg);
+}
+.Nintendo{
+    background: url(img/nintendo.svg);
+}
+.Mobile{
+    background: url(img/mobile.svg);
+}
+.Steam_deck{
+    background: url(img/steam-desk.svg);
+}
+.assortment-item{
+    display:grid;
+    grid-template-columns: minmax(40px,330px);
+    grid-template-rows: 450px;
+}
+.assortment-name{
+    position:absolute;
+    background: #425844;
+    width:80%;
+    padding: 15px 0px;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #F5F5F5;
+}
+.item-info{
+    display: grid;
+    grid-template-columns: minmax(100px,330px);
+    grid-template-rows: 175px;
+    background:#101D2C;
+}
+.grid-item{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(40px,130px));
+    grid-template-rows: repeat(2,20px);
+    grid-template-areas: 
+    "contry number"
+    "price monik";
+    justify-content: center;
+    align-content: center;
+    gap: 40px 0px;
+}
+.grid-item > div {
+    display: flex;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    color: #F5F5F5;
+}
+.grid-item img{
+    margin-right:10px;
+}
+.contry{
+    grid-area: contry;
+}
+.number{
+    margin-left:10px;
+    grid-area: number;
+}
+.price{
+    grid-area: price;
+}
+.monik{
+    margin-left:10px;
+    grid-area: monik;
+}
+.photo__stand{
+    border: 4px solid #fff;
+    background:#101D2C;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(16,auto);
+    grid-template-rows: 10px repeat(7,80px) 10px;
+    justify-items: center;
+    justify-content: center;
+    
+}
+.photo__stand img{
+    width: 100%;
+}
+.photo1{
+    grid-column: 1 / 5 ;
+    grid-row: 2 / 4;
+}
+.photo2{
+    grid-column: 5 / 11 ;
+    grid-row: 2 / 5;
+}
+.photo3{
+    grid-column: 11/ 13 ;
+    grid-row: 2 / 4;
+}
+.photo4{
+    grid-column: 13/ 17 ;
+    grid-row: 2 / 4;
+}
+.photo5{
+    grid-column: 1/ 5;
+    grid-row: 4 / 7;
+}
+.photo6{
+    grid-column: 5/ 9;
+    grid-row: 5 / 7;
+}
+.photo7{
+    grid-column: 9/ 11;
+    grid-row: 5 / 6;
+}
+.photo8{
+    grid-column: 11/ 15;
+    grid-row: 4 / 6;
+}
+.photo9{
+    grid-column: 15/ 17;
+    grid-row: 4 / 7;
+}
+.photo10{
+    grid-column: 1 / 3;
+    grid-row: 7 / 9;
+}
+.photo11{
+    grid-column: 3/ 7;
+    grid-row: 7 / 9;
+}
+.photo12{
+    grid-column: 7/ 9;
+    grid-row: 7 / 9;
+}
+.photo13{
+    grid-column: 9/ 15;
+    grid-row: 6 / 9;
+}
+.photo14{
+    grid-column: 15 / 17;
+    grid-row: 7 / 9;
+}
+.choose-platf{
+    width: 100%;
+}
+
+.footer{
+    border-right: 4px solid #fff;
+    border-left: 4px solid #fff;
+    background:#101D2C;
+    display: grid;
+    grid-template-columns:minmax(200px,1360px) ;
+    grid-template-rows: minmax(200px,300px);   
+}
+.footer-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer-logo{
+    margin-bottom: 80px;
+}
+.footer-links a{
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #F5F5F5;
+}
+.footer-links :not(:last-child){
+    margin-right:34px;
+}
+
+@media screen and (max-width: 1380px){
+    .header__info-block p {
+        font-size: 35px;
+    }
+    .photo__stand{
+        padding: 0px 10px;
+        grid-template-rows: 10px repeat(7,68px) 10px;
+    }
+    .photo__stand div{
+        overflow: hidden;
+    }
+}
+@media screen and (max-width: 1280px){
+    .section-two img:first-child {
+        margin-right: 25px;
+    }
+    .section-one img:first-child {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .section-two img:last-child {
+        margin-right: 25px;
+    }
+}
+@media screen and (max-width: 1200px){
+    .assortment {
+        grid-template-rows: auto;
+        padding: 20px;
+    }
+    .achievements-wrapper {
+    grid-template-columns: repeat(2,minmax(100px,360px));
+    grid-template-rows: repeat(3,minmax(80px, 180px));
+    grid-template-areas:
+            "platform turnir"
+            "onlyne world"
+            "chat pay";
+    }
+    .assortment-wrapper {
+    grid-template-columns: repeat(2,minmax(100px,330px));
+    grid-template-rows: repeat(3,minmax(100px,450px));
+    }
+    .photo__stand{
+    grid-template-rows: 10px repeat(7,60px) 10px;
+    }
+}
+@media screen and (max-width: 1180px){
+    .header__info-block p {
+        font-size: 28px;
+    }
+}
+@media screen and (max-width: 1100px){
+    .header{
+        grid-template-areas: "info"
+        "players";
+    }
+
+    .header__info-block {
+        align-items: center;
+        margin:0;
+    }
+    .header__info {
+        background-size: cover;
+        width: 100%;
+    }
+    .header__players {
+       grid-template-columns: auto;
+    }
+    .photo__stand{
+        grid-template-rows: 10px repeat(7,10%) 10px;
+        align-content: center;
+    }
+}
+@media screen and (max-width: 1024px){
+    .teams-photo-first {
+        top: 15%;
+    }
+    .teams-photo-second {
+        top: 45%;
+    }
+    .footer-links{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .footer-links a{
+        margin: 20px;
+    }
+}
+@media screen and (max-width: 860px){
+    .achievements-wrapper{
+        margin:100px auto;
+
+    }
+    .achievements {
+        grid-template-rows: minmax(400px,auto);
+    }
+    .achievements-wrapper {
+        grid-template-columns: minmax(100px,360px);
+        grid-template-rows: repeat(6,minmax(80px, 180px));
+        grid-template-areas:
+            "platform"
+            "turnir"
+            "onlyne "
+            "world"
+            "chat"
+            "pay";
+    }
+    .teams {
+        grid-template-columns:auto;
+        grid-template-rows: repeat(2,minmax(400px,584px));
+    }
+    .teams img {
+        position: absolute;
+        width: 50%;
+    }
+    .teams-second-wrapper {
+        margin:0;
+        width: 100%;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 800px){
+    .assortment-wrapper {
+        padding: 10px;
+        gap: 40px 30px;
+    }  
+    .teams img {
+        width: 65%;
+    } 
+    .teams-photo-first {
+        top: 6%;
+        left: 5%;
+    }
+    .teams-photo-second {
+        left: 30%;
+    }
+}
+@media screen and (max-width: 768px){
+    .btn-nav div {
+        background: #61A568;
+    }
+    .wrapper{
+        grid-template-columns: minmax(240px, 1360px);
+        grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    }
+    .nav{
+        position: absolute;
+    }
+    .header {
+        border:none;
+    }
+    .footer {
+        border:none;
+    }
+    .photo__stand {
+        border: none;
+    }
+    .teams{
+        border:none;
+    }
+}
+@media screen and (max-width:645px) {
+    .assortment-wrapper {
+        grid-template-columns: repeat(1,minmax(100px,330px));
+        grid-template-rows: repeat(6,minmax(100px,450px));
+    }
+    .teams-photo-second {
+        top: 52%;
+    }
+}
+@media screen and (max-width: 600px){
+    .header__photo {
+        flex-wrap: wrap;
+    }
+    .header__photo p {
+        margin: 0; 
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        bottom: 100px;
+    }
+    .teams-second-p {
+        font-size: 34px;
+    }
+    .teams-first {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .teams img {
+        position: relative;
+        width: 70%;
+    }
+    .teams-photo-first {
+        top: 0;
+        left: 0;
+    }
+    .teams-photo-second{
+        top: 0;
+        left: 0;
+    }
+    .photo__stand {
+        grid-template-rows: 5px repeat(7,10%) 10px;
+    }
+}
+@media screen and (max-width: 565px){
+    .header__info-block p {
+        font-size: 25px;
+    }
+    .photo__stand {
+        grid-template-rows: 5px repeat(7,9%) 10px;
+    }
+    .footer {
+        grid-template-rows: minmax(200px,400px);
+    }
+}
+@media screen and (max-width: 480px){
+    .header__info-block p {
+        font-size: 20px;
+        text-align: center;
+    }
+    .photo__stand {
+        grid-template-rows: 5px repeat(7,8%) 10px;
+    }
+}
+@media screen and (max-width: 420px){
+    .teams-second-p2 {
+        padding: 10px;
+    }
+    .desktop{
+        width: 100%;
+    }
+    .desktop li a{
+        font-size: 26px;
+    }
+}
+@media screen and (max-width: 380px){
+    .achievements-wrapper {
+        grid-template-rows: repeat(6,minmax(80px, auto));
+        gap: 30px;
+    }
+    .achievements-wrapper div{
+        padding: 10px;
+    }
+    .footer {
+        grid-template-rows: minmax(200px,480px);
+    }
+}
+@media screen and (max-width:340px) {
+    .grid-item {
+        padding: 10px;
+    }
+    .grid-item div{
+        font-size: 12px;
+    }
+    .teams-second-p {
+        font-size: 25px;
+    }
+    .teams-second-p2 {
+        padding: 5px;
+    }    
+}
